@@ -1,20 +1,12 @@
 {
   "hosting": {
     "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
-        "function": "nuxtapp"
+        "function": "nuxtssr"
       }
-    ]
-  },
-  "functions": {
-    "source": "src",
-    "predeploy": "npm run build && npm run pre:deploy",
-    "ignore":[
-      "static",
-      "node_modules",
-      "**/**/dist/client"
     ]
   }
 }

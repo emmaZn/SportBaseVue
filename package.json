@@ -1,19 +1,28 @@
 {
-  "name": "SportBaseVue",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "core-js": "^3.9.1",
-    "firebase": "^8.4.2",
-    "nuxt": "^2.15.3"
-  },
-  "devDependencies": {
-    "@nuxtjs/vuetify": "^1.11.3"
-  }
+    "name": "SportBaseVue",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "build:firebase": "yarn clean && yarn build && yarn copy && cd functions && yarn",
+        "clean": "yarn clean:public && yarn clean:functions && yarn clean:static",
+        "clean:functions": "rimraf \"functions/node_modules\" && rimraf \"functions/.nuxt\"",
+        "clean:public": "rimraf \"public/**/*.*!(md)\" && rimraf \"public/_nuxt\"",
+        "clean:static": "rimraf \"src/static/sw.js\"",
+        "copy": "yarn copy:nuxt && yarn copy:static",
+        "copy:nuxt": "mkdir public/_nuxt && cp -r .nuxt/dist/* public/_nuxt",
+        "copy:static": "cp -r src/static/* public",
+        "start:firebase": "firebase serve --only functions,hosting",
+        "deploy": "firebase deploy --only functions,hosting"
+    },
+    "dependencies": {
+        "@nuxtjs/vuetify": "^1.11.3",
+        "core-js": "^3.9.1",
+        "firebase": "^8.4.2",
+        "nuxt": "^2.15.3",
+        "nuxt-edge": "^2.16.0-26991379.8e2cad5a"
+    },
+    "devDependencies": {
+        "@nuxtjs/vuetify": "^1.11.3"
+    }
 }
