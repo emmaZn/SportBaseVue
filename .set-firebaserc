@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "sportbase-38151",
+    "develop": "sportbase-38151",
+    "staging": "sportbase-38151",
+    "production": "sportbase-38151"
+  }
+}
