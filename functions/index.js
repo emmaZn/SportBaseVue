@@ -5,7 +5,11 @@ const express = require('express')
 const app = express()
 
 const config = {
-  dev: false
+  dev: false,
+  buildDir:"nuxt",
+  build:{
+      publicPath: '/public/'
+  }
 }
 
 const nuxt = new Nuxt(config)
@@ -24,7 +28,7 @@ async function handleRequest(req, res) {
   if (!isReady) {
     await readyPromise
   }
-  res.set('Cache-Control', 'public, max-age=1, s-maxage=1')
+  res.set('Cache-Control', 'public, max-age=600, s-maxage=1200')
   await nuxt.render(req, res)
 }
 

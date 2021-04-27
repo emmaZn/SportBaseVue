@@ -60,10 +60,10 @@ export default {
     }
   },
 
-  srcDir: 'src',
-  buildDir: 'functions/.nuxt',
+  buildDir: '../functions/nuxt',
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    publicPath : '/public/',
     extractCSS: true,
   }
 }

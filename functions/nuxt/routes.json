@@ -1,0 +1,23 @@
+[
+  {
+    "name": "inspire",
+    "path": "/inspire",
+    "component": "/home/emma/Documents/SportBaseVue/src/pages/inspire.vue",
+    "chunkName": "pages/inspire",
+    "_name": "_1c111cfe"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/home/emma/Documents/SportBaseVue/src/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_63bf0650"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/emma/Documents/SportBaseVue/src/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_cbd1398e"
+  }
+]

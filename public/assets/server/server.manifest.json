@@ -1,0 +1,19 @@
+{
+  "entry": "server.js",
+  "files": {
+    "components/logo.js": "components/logo.js",
+    "components/vuetify-logo.js": "components/vuetify-logo.js",
+    "pages/index.js": "pages/index.js",
+    "pages/inspire.js": "pages/inspire.js",
+    "pages/login.js": "pages/login.js",
+    "server.js": "server.js"
+  },
+  "maps": {
+    "components/logo.js": "components/logo.js.map",
+    "components/vuetify-logo.js": "components/vuetify-logo.js.map",
+    "pages/index.js": "pages/index.js.map",
+    "pages/inspire.js": "pages/inspire.js.map",
+    "pages/login.js": "pages/login.js.map",
+    "server.js": "server.js.map"
+  }
+}

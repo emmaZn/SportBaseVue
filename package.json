@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "build": "nuxt build",
+        "build": "cd src && nuxt build",
         "build:firebase": "yarn clean && yarn build && yarn copy && cd functions && yarn",
         "clean": "yarn clean:public && yarn clean:functions && yarn clean:static",
         "clean:functions": "rimraf \"functions/node_modules\" && rimraf \"functions/.nuxt\"",
