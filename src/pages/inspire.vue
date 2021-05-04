@@ -1,11 +1,7 @@
 <template>
   <v-row>
     <v-col class="text-center">
-      <img
-        src="/v.png"
-        alt="Vuetify.js"
-        class="mb-5"
-      >
+      <img src="/v.png" alt="Vuetify.js" class="mb-5" />
       <blockquote class="blockquote">
         &#8220;First, solve the problem. Then, write the code.&#8221;
         <footer>
@@ -17,3 +13,23 @@
     </v-col>
   </v-row>
 </template>
+<script>
+export default {
+  methods: {
+    check() {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          var uid = user.uid;
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+    },
+  },
+};
+</script>
+</script>

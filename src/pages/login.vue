@@ -4,7 +4,7 @@
       <h1>Login</h1>
       <v-text-field v-model="email" label="Mail"></v-text-field>
       <v-text-field v-model="password" label="Mot de passe"></v-text-field>
-      <v-btn @click="submit"></v-btn>
+      <v-btn @click="submit">Connexion</v-btn>
     </v-form>
   </div>
 </template>
@@ -28,14 +28,13 @@ export default {
         .then((userCredential) => {
           // Signed in
           let user = userCredential.user;
-          console.log (user)
+          console.log(user);
           // ...
         })
         .catch((error) => {
           let errorCode = error.code;
           let errorMessage = error.message;
-          console.log (error)
-
+          console.log(error);
         });
       // [END auth_signin_password]
     },

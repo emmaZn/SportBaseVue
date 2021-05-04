@@ -6,6 +6,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _1c111cfe = () => interopDefault(import('../../src/pages/inspire.vue' /* webpackChunkName: "pages/inspire" */))
 const _63bf0650 = () => interopDefault(import('../../src/pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _5110b08c = () => interopDefault(import('../../src/pages/register.vue' /* webpackChunkName: "pages/register" */))
 const _cbd1398e = () => interopDefault(import('../../src/pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -27,6 +28,10 @@ export const routerOptions = {
     path: "/login",
     component: _63bf0650,
     name: "login"
+  }, {
+    path: "/register",
+    component: _5110b08c,
+    name: "register"
   }, {
     path: "/",
     component: _cbd1398e,
