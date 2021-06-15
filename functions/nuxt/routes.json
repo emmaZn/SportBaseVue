@@ -1,30 +1,30 @@
 [
   {
-    "name": "inspire",
-    "path": "/inspire",
-    "component": "/home/emma/Documents/SportBaseVue/src/pages/inspire.vue",
-    "chunkName": "pages/inspire",
-    "_name": "_1c111cfe"
+    "name": "accountParameters",
+    "path": "/accountParameters",
+    "component": "/home/emma/Documents/SportBaseVue/src/pages/accountParameters.vue",
+    "chunkName": "pages/accountParameters",
+    "_name": "_1dd31544"
   },
   {
-    "name": "login",
-    "path": "/login",
-    "component": "/home/emma/Documents/SportBaseVue/src/pages/login.vue",
-    "chunkName": "pages/login",
-    "_name": "_63bf0650"
+    "name": "newsFeed",
+    "path": "/newsFeed",
+    "component": "/home/emma/Documents/SportBaseVue/src/pages/newsFeed.vue",
+    "chunkName": "pages/newsFeed",
+    "_name": "_3694440c"
   },
   {
-    "name": "register",
-    "path": "/register",
-    "component": "/home/emma/Documents/SportBaseVue/src/pages/register.vue",
-    "chunkName": "pages/register",
-    "_name": "_5110b08c"
+    "name": "signIn",
+    "path": "/signIn",
+    "component": "/home/emma/Documents/SportBaseVue/src/pages/signIn.vue",
+    "chunkName": "pages/signIn",
+    "_name": "_154a466b"
   },
   {
-    "name": "index",
-    "path": "/",
-    "component": "/home/emma/Documents/SportBaseVue/src/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_cbd1398e"
+    "name": "signUp",
+    "path": "/signUp",
+    "component": "/home/emma/Documents/SportBaseVue/src/pages/signUp.vue",
+    "chunkName": "pages/signUp",
+    "_name": "_29e09ce1"
   }
 ]
