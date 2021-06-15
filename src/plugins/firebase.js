@@ -11,9 +11,7 @@ const config = {
   measurementId: "G-XN6ZS185C2"
 }
 
-!firebase.apps.length ? firebase.initializeApp(config) : '';
-
-
-export const auth = firebase.auth();
-export const github = new firebase.auth.GithubAuthProvider();
-export default firebase;
+!firebase.apps.length ? firebase.initializeApp(config) : ''
+export const GoogleProvider = new firebase.auth.GoogleAuthProvider()
+export const auth = firebase.auth()
+export default firebase

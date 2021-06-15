@@ -1,13 +1,17 @@
 <template>
   <div>
     <v-form>
-      <h1>Login</h1>
+      <v-row class="ma-5" justify="center">
+        <v-btn @click="loginWithGoogle">Connexion Google</v-btn>
+      </v-row>
+      <v-row class="ma-5" justify="center">
+        <v-btn @click="loginWithFB">Connexion Facebook</v-btn>
+      </v-row>
       <v-text-field v-model="email" label="Mail"></v-text-field>
       <v-text-field v-model="password" label="Mot de passe"></v-text-field>
       <v-btn @click="submit">Connexion</v-btn>
     </v-form>
-    <v-btn @click="loginWithGoogle">Google</v-btn>
-    <v-btn @click="loginWithFB">Facebook</v-btn>
+    <v-btn class="mt-5" to="/signUp" nuxt>Inscription</v-btn>
   </div>
 </template>
 
@@ -16,6 +20,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 export default {
+  layout: "auth",
   data() {
     return {
       email: "",
@@ -56,10 +61,15 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
           // Signed in
           let user = userCredential.user;
-          console.log(user);
+          let idToken;
+          await firebase
+            .auth()
+            .currentUser.getIdToken(true)
+            .then((res) => (idToken = res));
+          console.log(idToken);
           // ...
         })
         .catch((error) => {
@@ -72,6 +82,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

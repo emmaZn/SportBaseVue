@@ -15,7 +15,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
+      { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" },
     ]
   },
 
@@ -41,7 +42,9 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
   ],
-
+  router: {
+    middleware: 'router-auth'
+  },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   // vuetify: {
   //   customVariables: ['~/assets/variables.scss'],
@@ -64,7 +67,7 @@ export default {
   // buildDir: '../functions/nuxt',
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    publicPath : '/public/',
+    publicPath: '/public/',
     extractCSS: true,
   }
 }
