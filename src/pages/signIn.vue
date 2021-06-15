@@ -33,13 +33,27 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provider)
-        .then(async (user) => {
+        .then(async (userCredentials) => {
           let idToken;
           await firebase
             .auth()
             .currentUser.getIdToken(true)
-            .then((res) => (idToken = res));
-          console.log(idToken);
+            .then((res) => {
+              idToken = res;
+              console.log(userCredentials.user, idToken);
+              let user = {
+                uid: userCredentials.user.uid,
+                email: userCredentials.user.email,
+                emailVerified: userCredentials.user.emailVerified,
+                displayName: userCredentials.user.displayName,
+                photoURL: userCredentials.user.photoURL,
+                isAdmin: userCredentials.user.isAdmin,
+              };
+              this.$store.commit("setUser", user);
+              if (userCredentials.additionalUserInfo.isNewUser)
+              return this.$nuxt.$options.router.push("accountParameters");
+              this.$nuxt.$options.router.push("newsFeed");
+            });
         });
     },
     loginWithFB() {
@@ -52,8 +66,23 @@ export default {
           await firebase
             .auth()
             .currentUser.getIdToken(true)
-            .then((res) => (idToken = res));
-          console.log(idToken);
+            .then((res) => {
+              idToken = res;
+              console.log(user, idToken);
+              let user = {
+                uid: userCredentials.user.uid,
+                email: userCredentials.user.email,
+                emailVerified: userCredentials.user.emailVerified,
+                displayName: userCredentials.user.emailVerified,
+                photoURL: userCredentials.user.emailVerified,
+                isAdmin: userCredentials.user.emailVerified,
+              };
+              this.$store.commit("setUser", user);
+              if (userCredentials.additionalUserInfo.isNewUser)
+              return this.$nuxt.$options.router.push("accountParameters");
+              return this.$nuxt.$options.router.push("newsFeed");
+
+            });
         });
     },
     submit() {
@@ -61,16 +90,18 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(async (userCredential) => {
-          // Signed in
-          let user = userCredential.user;
-          let idToken;
-          await firebase
-            .auth()
-            .currentUser.getIdToken(true)
-            .then((res) => (idToken = res));
-          console.log(idToken);
-          // ...
+        .then((userCredentials) => {
+          console.log("user", userCredentials, userCredentials.user);
+          let user = {
+            uid: userCredentials.user.uid,
+            email: userCredentials.user.email,
+            emailVerified: userCredentials.user.emailVerified,
+            displayName: userCredentials.user.emailVerified,
+            photoURL: userCredentials.user.emailVerified,
+            isAdmin: userCredentials.user.emailVerified,
+          };
+          this.$store.commit("setUser", user);
+          this.$nuxt.$options.router.push()("newsFeed");
         })
         .catch((error) => {
           let errorCode = error.code;

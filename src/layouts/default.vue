@@ -87,12 +87,12 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          alert("Successfully logged out");
-          this.$router.push("/");
+          this.$store.commit("logout");
+          this.$router.push("/signIn");
         })
         .catch((error) => {
           alert(error.message);
-          this.$router.push("/");
+          this.$router.push("/signIn");
         });
     },
   },
