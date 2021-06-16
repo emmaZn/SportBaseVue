@@ -1,29 +1,46 @@
 <template>
-  <div class="mb-4">
-    <label for="imageUrl">Image</label>
-    <div v-if="$store.state.photoURL">
-      <!-- A preview of the image. -->
-      <img
-        :src="$store.state.photoURL"
-        class="w-24 md:w-32 h-auto object-cover inline-block"
-        alt=""
-      />
-      <!-- Delete button for deleting the image. -->
-      <button
-        v-if="$store.state.photoURL"
-        @click="deleteImage"
-        :disabled="isDeletingImage"
-        type="button"
-        class="bg-red-500 border-red-300 text-white"
-      >
-        {{ isDeletingImage ? "Deleting..." : "Delete" }}
-      </button>
-    </div>
+  <div class="mt-10">
+    <!-- A preview of the image. -->
+    <v-row justify="center">
+      <v-badge bordered color="transparent" offset-x="10" offset-y="10">
+        <v-btn
+          slot="badge"
+          fab
+          small
+          style="z-index: 1"
+          @click="launchImageFile"
+          :disabled="isUploadingImage"
+          type="button"
+        >
+          <v-icon> mdi-pen </v-icon>
+        </v-btn>
+        <v-avatar size="200">
+          <v-img
+            :src="$store.state.photoURL"
+            aspect-ratio="1"
+            rounded
+            @click="launchImageFile"
+            :disabled="isUploadingImage"
+            type="button"
+          />
+        </v-avatar>
+      </v-badge>
+    </v-row>
+    <!-- Delete button for deleting the image. -->
+    <!-- <button
+      v-if="$store.state.photoURL"
+      @click="deleteImage"
+      :disabled="isDeletingImage"
+      type="button"
+      class="bg-red-500 border-red-300 text-white"
+    >
+      {{ isDeletingImage ? "Deleting..." : "Delete" }}
+    </button> -->
 
     <!-- Clicking this button triggers the "click" event of the file input. -->
-    <button @click="launchImageFile" :disabled="isUploadingImage" type="button">
+    <!-- <button @click="launchImageFile" :disabled="isUploadingImage" type="button">
       {{ isUploadingImage ? "Uploading..." : "Upload" }}
-    </button>
+    </button> -->
     <!-- This is the real file input element. -->
     <input
       ref="imageFile"
@@ -31,12 +48,21 @@
       type="file"
       accept="image/png, image/jpeg"
       class="hidden"
+      style="display: none"
     />
-      <v-text-field v-model="$store.state.email" label="email"></v-text-field>
-  <v-text-field v-model="$store.state.displayName" label="name"></v-text-field>
-  <v-btn @click="setDisplayName">Enregistrer</v-btn>
+    <v-text-field
+      v-model="$store.state.email"
+      readonly
+      label="Email"
+      class="mt-5"
+    ></v-text-field>
+    <v-text-field
+      v-model="displayName"
+      label="Pseudo"
+    ></v-text-field>
+    <v-btn @click="setDisplayName">Enregistrer</v-btn>
+    <v-btn @click="logout"> Déconnexion </v-btn>
   </div>
-
 </template>
 <script>
 import { getStorage, ref } from "firebase/storage";
@@ -48,6 +74,7 @@ export default {
     return {
       isUploadingImage: false,
       isDeletingImage: false,
+      displayName:this.$store.state.displayName
     };
   },
   methods: {
@@ -119,17 +146,16 @@ export default {
           console.error("Error deleting image", error);
         });
     },
-    setDisplayName(){
+    setDisplayName() {
       const user = firebase.auth().currentUser;
-        user
-          .updateProfile({
-            displayName: this.$store.state.displayName,
-          })
-          .then(() => {
-            this.$store.commit("setDisplayName", this.$store.state.displayName);
-          })
-
-    }
+      user
+        .updateProfile({
+          displayName: this.displayName,
+        })
+        .then(() => {
+          this.$store.commit("setDisplayName", this.displayName);
+        });
+    },
   },
 };
 </script>

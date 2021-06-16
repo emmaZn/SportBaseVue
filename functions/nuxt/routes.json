@@ -14,6 +14,13 @@
     "_name": "_3694440c"
   },
   {
+    "name": "search",
+    "path": "/search",
+    "component": "/home/emma/Documents/SportBaseVue/src/pages/search.vue",
+    "chunkName": "pages/search",
+    "_name": "_5493dd51"
+  },
+  {
     "name": "signIn",
     "path": "/signIn",
     "component": "/home/emma/Documents/SportBaseVue/src/pages/signIn.vue",

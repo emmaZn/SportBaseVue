@@ -6,6 +6,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _1dd31544 = () => interopDefault(import('../../src/pages/accountParameters.vue' /* webpackChunkName: "pages/accountParameters" */))
 const _3694440c = () => interopDefault(import('../../src/pages/newsFeed.vue' /* webpackChunkName: "pages/newsFeed" */))
+const _5493dd51 = () => interopDefault(import('../../src/pages/search.vue' /* webpackChunkName: "pages/search" */))
 const _154a466b = () => interopDefault(import('../../src/pages/signIn.vue' /* webpackChunkName: "pages/signIn" */))
 const _29e09ce1 = () => interopDefault(import('../../src/pages/signUp.vue' /* webpackChunkName: "pages/signUp" */))
 
@@ -28,6 +29,10 @@ export const routerOptions = {
     path: "/newsFeed",
     component: _3694440c,
     name: "newsFeed"
+  }, {
+    path: "/search",
+    component: _5493dd51,
+    name: "search"
   }, {
     path: "/signIn",
     component: _154a466b,

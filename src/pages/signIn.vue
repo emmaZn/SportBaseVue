@@ -49,9 +49,20 @@ export default {
                 photoURL: userCredentials.user.photoURL,
                 isAdmin: userCredentials.user.isAdmin,
               };
+              db.collection("users")
+                .add({
+                  uid: user.uid,
+                })
+                .then((docRef) => {
+                  console.log("Document written with ID: ", docRef.id);
+                })
+                .catch((error) => {
+                  console.error("Error adding document: ", error);
+                });
+
               this.$store.commit("setUser", user);
               if (userCredentials.additionalUserInfo.isNewUser)
-              return this.$nuxt.$options.router.push("accountParameters");
+                return this.$nuxt.$options.router.push("accountParameters");
               this.$nuxt.$options.router.push("newsFeed");
             });
         });
@@ -79,9 +90,8 @@ export default {
               };
               this.$store.commit("setUser", user);
               if (userCredentials.additionalUserInfo.isNewUser)
-              return this.$nuxt.$options.router.push("accountParameters");
+                return this.$nuxt.$options.router.push("accountParameters");
               return this.$nuxt.$options.router.push("newsFeed");
-
             });
         });
     },
