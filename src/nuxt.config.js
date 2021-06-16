@@ -42,7 +42,11 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios'
   ],
+  axios: {
+    // proxy: true
+  },
   // router: {
   //   middleware: 'router-auth'
   // },

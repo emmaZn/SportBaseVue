@@ -6,10 +6,12 @@
         <vuetify-logo />
       </div>
       <v-card>
-        <v-card-title class="headline">
+        <p >allo {{this.ip}} </p>
+        <button @click="console.log('test')">button</button>
+        <!-- <v-card-title class="headline">
           Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
+        </v-card-title> -->
+        <!-- <v-card-text>
           <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
           <p>
             For more information on Vuetify, check out the <a
@@ -70,20 +72,36 @@
           >
             Continue
           </v-btn>
-        </v-card-actions>
+        </v-card-actions> -->
       </v-card>
     </v-col>
   </v-row>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import Logo from "~/components/Logo.vue";
+import VuetifyLogo from "~/components/VuetifyLogo.vue";
 
 export default {
   components: {
     Logo,
-    VuetifyLogo
-  }
-}
+    VuetifyLogo,
+  },
+  data () {
+    return {
+      ip: null
+    }
+  },
+  mounted() {
+    console.log("test");
+    this.fetchSomething()
+  },
+  methods: {
+    async fetchSomething() {
+      console.log(this.ip)
+      // const ip = await this.$axios.$get("http://icanhazip.com");
+      // this.ip = ip;
+    },
+  },
+};
 </script>
