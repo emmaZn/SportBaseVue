@@ -23,11 +23,11 @@ export const routerOptions = {
 
   routes: [{
     path: "/accountParameters",
-    component: _1dd31544,
+    component: _ea8b01ae,
     name: "accountParameters"
   }, {
     path: "/newsFeed",
-    component: _3694440c,
+    component: _bd2ed862,
     name: "newsFeed"
   }, {
     path: "/search",
@@ -35,11 +35,11 @@ export const routerOptions = {
     name: "search"
   }, {
     path: "/signIn",
-    component: _154a466b,
+    component: _596a6d80,
     name: "signIn"
   }, {
     path: "/signUp",
-    component: _29e09ce1,
+    component: _6e00c3f6,
     name: "signUp"
   }],
 
