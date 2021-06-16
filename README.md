@@ -18,3 +18,23 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+DEV nuxt
+
+from src/nuxt.config.js
+remove line  : buildDir: '../functions/nuxt',
+
+from src
+$npm install
+$npm run dev
+
+DEV firebase
+
+from src/nuxt.config.js
+add line  : buildDir: '../functions/nuxt',
+
+from src
+yarn build
+cd ..
+cp -R functions/nuxt/dist/ public/assets/
+firebase serve
